@@ -2,14 +2,11 @@
 #include <stdlib.h>
 
 
-void shuffle(int *array, size_t n)
-{
-    if (n > 1)
-    {
-        size_t i;
-        for (i = 0; i < n - 1; i++)
-        {
-            size_t j = i + rand() / (RAND_MAX / (n - i) + 1);
+void shuffle(int *array, int size) {
+    if (size > 1) {
+        int i;
+        for (i = 0; i < size - 1; i++) {
+            size_t j = i + rand() / (RAND_MAX / (size - i) + 1);
             int t = array[j];
             array[j] = array[i];
             array[i] = t;
@@ -17,15 +14,15 @@ void shuffle(int *array, size_t n)
     }
 }
 
-int main(int arg,char* argv[]) {
+int main(int arg, char *argv[]) {
     char *name = argv[1];
     int arraySize = atoi(argv[2]);
     int array[arraySize];
 
-        FILE *arquivo;
-        arquivo = fopen(name, "w");
+    FILE *file;
+    file = fopen(name, "w");
 
-    if (arquivo != NULL) {
+    if (file != NULL) {
         for (int i = 0; i < arraySize; i++) {
             array[i] = i;
         }
@@ -33,9 +30,9 @@ int main(int arg,char* argv[]) {
         shuffle(array, arraySize);
 
         for (int i = 0; i < arraySize; i++) {
-            fprintf(arquivo, "%d\n", array[i]);
+            fprintf(file, "%d\n", array[i]);
         }
-        fclose(arquivo);
+        fclose(file);
     } else {
         printf("Open file error.\n");
     }
