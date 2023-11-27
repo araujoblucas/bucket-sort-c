@@ -1,4 +1,7 @@
 *.exe
 cmake-build-debug
 *.txt
+case_1.txt
+case_2.txt
+case_3.txt
 .idea
