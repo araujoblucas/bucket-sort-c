@@ -58,7 +58,7 @@ void bucket_sort(int v[], int size) {
         }
     }
 
-#pragma omp parallel for schedule(dynamic)
+#pragma omp parallel for
     for (i = 0; i < numberOfBuckets; i++) {
         if (b[i].top) {
             bubble_sort(b[i].bucket, b[i].top);
