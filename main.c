@@ -125,5 +125,5 @@ int main(int arg, char *argv[]) {
         fprintf(fileForWrite, "%d\n", array[i]);
     }
     printf("Sorted values saved on %s.\n", argv[2]);
-    printf("Tempo: %4.2f\n", end - start);
+    printf("Time: %4.2f\n", end - start);
 }
